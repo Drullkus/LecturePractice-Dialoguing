@@ -17,11 +17,11 @@ let config = {
     width: 800,
     height: 600,
     scene: [ Title, Talking ]
-}
+};
 
-const game = new Phaser.Game(config)
+const game = new Phaser.Game(config);
 
 // globals
-const centerX = game.config.width / 2
-const centerY = game.config.height / 2
-let cursors = null
+const centerX = game.config.width / 2;
+const centerY = game.config.height / 2;
+let cursors = null;
