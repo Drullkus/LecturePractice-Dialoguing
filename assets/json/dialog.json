@@ -1,6 +1,11 @@
 [
 	[
 		{
+			"speaker": "tinfoil_cat",
+			"dialog": "Wubba lubba dub dub\ngot some gamer words for you\nimma fite u mate\nget pwnd noob",
+			"newSpeaker": true
+		},
+		{
 			"speaker" : "bottom",
 			"dialog" : "Are we all met?",
 			"newSpeaker" : "true"

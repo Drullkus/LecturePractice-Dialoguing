@@ -7,11 +7,11 @@ class Talking extends Phaser.Scene {
         // dialog constants
         this.DBOX_X = 0;		        // dialog box x-position
         this.DBOX_Y = 400;			    // dialog box y-position
-        this.DBOX_FONT = 'gem_font';    // dialog box font key 
+        this.DBOX_FONT = 'gridova_font';// dialog box font key 
 
         this.TEXT_X = 50;			    // text w/in dialog box x-position
         this.TEXT_Y = 445;			    // text w/in dialog box y-position
-        this.TEXT_SIZE = 24;	        // text font size (in pixels)
+        this.TEXT_SIZE = 29;	        // text font size (in pixels)
         this.TEXT_MAX_WIDTH = 715;	    // max width of text within box
 
         this.NEXT_TEXT = '[SPACE]';	    // text to display for next prompt
@@ -56,6 +56,9 @@ class Talking extends Phaser.Scene {
         this.lysander.speakerXOffset = 120;
         this.philostrate = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'philostrate');
         this.philostrate.speakerXOffset = 160;
+        this.tinfoil_cat = this.add.sprite(this.OFFSCREEN_X, this.DBOX_Y+8, 'tinfoil_cat');
+        this.tinfoil_cat.speakerXOffset = 160;
+        this.tinfoil_cat.speakerYOffset = 300;
 
         // add dialog box sprite
         this.dialogbox = this.add.sprite(this.DBOX_X, this.DBOX_Y, 'dialogbox').setOrigin(0);
@@ -137,10 +140,16 @@ class Talking extends Phaser.Scene {
                         ease: 'Linear'
                     });
                 }
+
+                const yOffset = this[this.dialogSpeaker].speakerYOffset ? {
+                    y: this[this.dialogSpeaker].speakerYOffset
+                } : {};
+
                 // tween in new speaker's image
                 this.tweens.add({
                     targets: this[this.dialogSpeaker],
                     x: this.DBOX_X + this[this.dialogSpeaker].speakerXOffset,
+                    ...yOffset,
                     duration: this.tweenDuration,
                     ease: 'Linear'
                 });
